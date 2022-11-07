@@ -19,7 +19,7 @@ namespace EmployeeWageProblem
                 Console.WriteLine("Employee is Present");
             else
                 Console.WriteLine("Employee is Absent");
-            //UC2-Calculate Daily Emp Wages
+        //UC2-Calculate Daily Emp Wages
         }
         public void EmpWage()
         {
@@ -31,6 +31,17 @@ namespace EmployeeWageProblem
                 empHrs = 0;
             dailyEmpWage = WAGE_PER_HR * empHrs;
             Console.WriteLine("Daily Emp Wage Full Day :" + dailyEmpWage);
+        }
+        public void PartTime()
+        {
+            int dailyEmpWage = 0, empHrs = 0;
+            int empCheck = random.Next(0, 2);
+            if (empCheck == IS_PRESENT)
+                empHrs = HALF_DAY_HR;
+            else
+                empHrs = 0;
+            dailyEmpWage = WAGE_PER_HR * empHrs;
+            Console.WriteLine("Daily Emp Wage Half Day :" + dailyEmpWage);
         }
     }
 }
