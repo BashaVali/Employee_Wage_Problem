@@ -9,6 +9,11 @@ namespace EmployeeWageProblem
 {
     public class EmployeeWage
     {
+        public const int Full_Time = 1;
+        public const int Part_Time = 2;
+        public const int MAX_Working_Days = 5;
+        public const int MAX_Working_Hrs = 8;
+        public const int Emp_rate_per_Hour = 20;
         const int WAGE_PER_HR = 20, FULL_DAY_HR = 8, HALF_DAY_HR = 4, IS_PRESENT = 0, IS_FULL_TIME = 1, MONTH_WORK_DAY = 20;
         Random random = new Random();
         //UC1-Attendance
@@ -83,24 +88,60 @@ namespace EmployeeWageProblem
                 Console.WriteLine("Monthly Employee is Absent");
             }
         }
-            //UC6-TotalMonthlyWages
-            public void TotalMonthlyWages()
+        //UC6-TotalMonthlyWages
+        public void TotalMonthlyWages()
+        {
+            int day = 0, hours = 0, DailyEmpWage = 0, EmpWage = 0;
+            while (day < 20 & hours < 100)
             {
-                int day = 0, hours = 0, DailyEmpWage = 0, EmpWage = 0;
-                while (day < 20 & hours < 100)
-                {
-                    day++;
-                    hours += 8;
-
-                }
-                EmpWage = day * hours;
-                DailyEmpWage = WAGE_PER_HR * EmpWage;
-                Console.WriteLine("Employee Monthly Wage :" + DailyEmpWage);
+                day++;
+                hours += 8;
 
             }
+            EmpWage = day * hours;
+            DailyEmpWage = WAGE_PER_HR * EmpWage;
+            Console.WriteLine("Employee Monthly Wage :" + DailyEmpWage);
+        }
+        //UC7-RefractoredEmpWage
+        public void ComputeWage()
+        {
+            int empHours = 0;
+            int empWage = 0;
+            int workingHrs = 0;
+            int totalWage = 0;
+            int Working_Days = 2;
+            Random random = new Random();
+            while (Working_Days <= MAX_Working_Days && workingHrs <= MAX_Working_Hrs)
+            {
+                int empInput = random.Next(0, 3);
+                switch (empInput)
+                {
+                    case Full_Time:
+                        empHours = 8;
+                        break;
+                    case Part_Time:
+                        empHours = 4;
+                        break;
+                    default:
+                        empHours = 0;
+                        break;
+                }
+                empWage = Emp_rate_per_Hour * empHours;
+                workingHrs += empHours;
+                totalWage += empWage;
+                if (empInput != 0)
+                {
+                    Working_Days++;
+                }
 
-
-
-        
+            }
+            Console.WriteLine("workingHrs = {0} working days = {1} ", workingHrs, Working_Days);
+            Console.WriteLine("Employee Wage for {0} days = {1} ", MAX_Working_Days, totalWage);
+        }   
     }
 }
+
+    
+
+
+    
