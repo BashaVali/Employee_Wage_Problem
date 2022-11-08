@@ -17,7 +17,8 @@ namespace EmployeeWageProblem
                 Console.WriteLine("1.Attendance" + "\n"+
                                   "2.CalculateDailyEmpWages" + "\n" +
                                   "3.PartTime"+"\n" +
-                                  "4.SwitchCase"+"\n");
+                                  "4.SwitchCase"+"\n" +
+                                  "5.MonthlyWage"+"\n");
 
                 int check = Convert.ToInt32(Console.ReadLine());
                 switch (check)
@@ -38,7 +39,11 @@ namespace EmployeeWageProblem
                         EmployeeWage employeeWage4 = new EmployeeWage();
                         employeeWage4.SwitchCase();
                         break;
-                }
+                    case 5:
+                        EmployeeWage employeeWage5 = new EmployeeWage();
+                        employeeWage5.MonthlyWage();
+                        break;
+                }        
             }
         }
     }
