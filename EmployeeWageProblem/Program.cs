@@ -18,7 +18,8 @@ namespace EmployeeWageProblem
                                   "2.CalculateDailyEmpWages" + "\n" +
                                   "3.PartTime"+"\n" +
                                   "4.SwitchCase"+"\n" +
-                                  "5.MonthlyWage"+"\n");
+                                  "5.MonthlyWage"+"\n" +
+                                  "6.TotalMonthlyWages"+"\n");
 
                 int check = Convert.ToInt32(Console.ReadLine());
                 switch (check)
@@ -42,6 +43,10 @@ namespace EmployeeWageProblem
                     case 5:
                         EmployeeWage employeeWage5 = new EmployeeWage();
                         employeeWage5.MonthlyWage();
+                        break;
+                    case 6:
+                        EmployeeWage employeeWage6 = new EmployeeWage();
+                        employeeWage6.TotalMonthlyWages();
                         break;
                 }        
             }

@@ -44,7 +44,7 @@ namespace EmployeeWageProblem
             dailyEmpWage = WAGE_PER_HR * empHrs;
             Console.WriteLine("Daily Emp Wage Half Day :" + dailyEmpWage);
         }
-           //UC4-SwitchCase
+        //UC4-SwitchCase
         public void SwitchCase()
         {
             int dailyEmpWage = 0;
@@ -65,25 +65,42 @@ namespace EmployeeWageProblem
                     break;
             }
         }
-                  //UC5-MonthlyWage
-            public void MonthlyWage()
+        //UC5-MonthlyWage
+        public void MonthlyWage()
+        {
+            int FullWage = 0, HalfWage = 0;
+            int check = random.Next(0, 2);
+            if (check == IS_PRESENT)
             {
-                int FullWage = 0, HalfWage = 0;
-                int check = random.Next(0, 2);
-                if (check == IS_PRESENT)
-                {
-                    FullWage = MONTH_WORK_DAY * WAGE_PER_HR * FULL_DAY_HR;
-                    HalfWage = MONTH_WORK_DAY * WAGE_PER_HR * HALF_DAY_HR;
-                    Console.WriteLine("Monthly Employee Full Day :" + FullWage);
-                    Console.WriteLine("Monthly Employee Half Day :" + HalfWage);
-
-                }
-                else
-                {
-                    Console.WriteLine("Monthly Employee is Absent");
-                }
-
+                FullWage = MONTH_WORK_DAY * WAGE_PER_HR * FULL_DAY_HR;
+                HalfWage = MONTH_WORK_DAY * WAGE_PER_HR * HALF_DAY_HR;
+                Console.WriteLine("Monthly Employee Full Day :" + FullWage);
+                Console.WriteLine("Monthly Employee Half Day :" + HalfWage);
 
             }
+            else
+            {
+                Console.WriteLine("Monthly Employee is Absent");
+            }
         }
+            //UC6-TotalMonthlyWages
+            public void TotalMonthlyWages()
+            {
+                int day = 0, hours = 0, DailyEmpWage = 0, EmpWage = 0;
+                while (day < 20 & hours < 100)
+                {
+                    day++;
+                    hours += 8;
+
+                }
+                EmpWage = day * hours;
+                DailyEmpWage = WAGE_PER_HR * EmpWage;
+                Console.WriteLine("Employee Monthly Wage :" + DailyEmpWage);
+
+            }
+
+
+
+        
     }
+}
